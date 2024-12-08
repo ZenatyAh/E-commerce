@@ -1,7 +1,6 @@
 // layouts
 import MainLayout from "@layouts/MainLayout/MainLayout"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import style from "@styles/global.css";
 // pages
 import Home from '@pages/Home';
 import Categories from '@pages/Categories';
@@ -26,7 +25,19 @@ const router = createBrowserRouter([
         },
         {
           path: "products/:prefix",
-          element: <Products/>
+          element: <Products/>,
+          loader: ({params}) => {
+            if(typeof params.prefix !== "string" ||
+              !/^[a-z]+$/i.test(params.prefix)){
+                throw new Response(
+                  "Bad Request",{
+                    statusText: "Category Not Found",
+                    status: 400
+                  }
+                )
+            }
+            return true;
+          },
         },
         {
           path: "about-us",
