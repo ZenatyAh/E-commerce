@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface ICategoriesState {
     records: {id:number; title: string ; prefix : string; img: string}[];
-    loading: "idle" | "pending" | "secceeded" | "failed"| "ىخ";
+    loading: "idle" | "pending" | "secceeded" | "failed"| "Ahmed" | "new";
     error: string | null;
 }
 
