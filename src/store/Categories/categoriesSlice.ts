@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface ICategoriesState {
     records: {id:number; title: string ; prefix : string; img: string}[];
-    loading: "idle" | "pending" | "secceeded" | "failed"| "Ahmed" | "new";
+    loading: "idle" | "pending" | "secceeded" | "failed";
     error: string | null;
 }
-
+     
 const initialState: ICategoriesState = {
     records: [],
     loading: "idle",
